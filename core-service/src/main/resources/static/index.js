@@ -64,25 +64,25 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     };
 
     $scope.loadCart = function () {
-        $http.get('http://localhost:8189/web-market/api/v1/cart').then(function (response) {
+        $http.get('http://localhost:8190/carts/api/v1/cart').then(function (response) {
             $scope.cart = response.data;
         });
     };
 
     $scope.addToCart = function (productId) {
-        $http.get('http://localhost:8189/web-market/api/v1/cart/add/' + productId).then(function (response) {
+        $http.get('http://localhost:8190/carts/api/v1/cart/add/' + productId).then(function (response) {
             $scope.loadCart();
         });
     };
 
     $scope.removeFromCart = function (productId) {
-        $http.get('http://localhost:8189/web-market/api/v1/cart/remove/' + productId).then(function (response) {
+        $http.get('http://localhost:8190/carts/api/v1/cart/remove/' + productId).then(function (response) {
             $scope.loadCart();
         });
     };
 
     $scope.clearCart = function () {
-        $http.get('http://localhost:8189/web-market/api/v1/cart/clear').then(function (response) {
+        $http.get('http://localhost:8190/carts/api/v1/cart/clear').then(function (response) {
             $scope.loadCart();
         });
     };

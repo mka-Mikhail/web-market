@@ -1,5 +1,6 @@
 package com.mka.webmarket.carts.models;
 
+import com.mka.webmarket.api.ProductDto;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -19,16 +20,16 @@ public class Cart {
         return Collections.unmodifiableList(items);
     }
 
-    public void add(Product product) {
+    public void add(ProductDto productDto) {
         for (CartItem item :
                 items) {
-            if (product.getId().equals(item.getProductId())) {
+            if (productDto.getId().equals(item.getProductId())) {
                 item.changeQuantity(1);
                 recalculate();
                 return;
             }
         }
-        items.add(new CartItem(product.getId(), product.getTitle(), 1, product.getPrice(), product.getPrice()));
+        items.add(new CartItem(productDto.getId(), productDto.getTitle(), 1, productDto.getPrice(), productDto.getPrice()));
         recalculate();
     }
 

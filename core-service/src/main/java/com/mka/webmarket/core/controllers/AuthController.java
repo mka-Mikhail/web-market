@@ -1,9 +1,9 @@
 package com.mka.webmarket.core.controllers;
 
+import com.mka.webmarket.api.JwtRequest;
+import com.mka.webmarket.api.JwtResponse;
+import com.mka.webmarket.api.StringResponse;
 import com.mka.webmarket.core.services.UserService;
-import com.mka.webmarket.core.dtos.JwtRequest;
-import com.mka.webmarket.core.dtos.JwtResponse;
-import com.mka.webmarket.core.dtos.StringResponse;
 import com.mka.webmarket.core.utils.JwtTokenUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

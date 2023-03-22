@@ -1,22 +1,22 @@
 package com.mka.webmarket.carts.controllers;
 
+import com.mka.webmarket.api.CartDto;
+import com.mka.webmarket.carts.converters.CartConverter;
 import com.mka.webmarket.carts.services.CartService;
-import com.mka.webmarket.carts.models.Cart;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/cart")
+@CrossOrigin("*")
 @RequiredArgsConstructor
 public class CartController {
     private final CartService cartService;
+    private final CartConverter cartConverter;
 
     @GetMapping
-    public Cart getCurrentCart() {
-        return cartService.getCurrentCart();
+    public CartDto getCurrentCart() {
+        return cartConverter.modelToDto(cartService.getCurrentCart());
     }
 
     @GetMapping("/add/{id}")

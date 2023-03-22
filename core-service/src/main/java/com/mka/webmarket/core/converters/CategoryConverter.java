@@ -1,7 +1,7 @@
 package com.mka.webmarket.core.converters;
 
+import com.mka.webmarket.api.CategoryDto;
 import com.mka.webmarket.core.entities.Category;
-import com.mka.webmarket.core.dtos.CategoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

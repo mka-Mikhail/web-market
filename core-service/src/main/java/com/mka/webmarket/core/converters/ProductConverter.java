@@ -1,10 +1,10 @@
 package com.mka.webmarket.core.converters;
 
+import com.mka.webmarket.api.ProductDto;
+import com.mka.webmarket.api.ResourceNotFoundException;
 import com.mka.webmarket.core.entities.Category;
 import com.mka.webmarket.core.entities.Product;
 import com.mka.webmarket.core.services.CategoryService;
-import com.mka.webmarket.core.dtos.ProductDto;
-import com.mka.webmarket.core.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

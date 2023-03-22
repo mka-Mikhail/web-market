@@ -1,5 +1,8 @@
 package com.mka.webmarket.carts.services;
 
+import com.mka.webmarket.api.ProductDto;
+import com.mka.webmarket.api.ResourceNotFoundException;
+import com.mka.webmarket.carts.integrations.ProductServiceIntegrations;
 import com.mka.webmarket.carts.models.Cart;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CartService {
-    private final ProductService productService;
+    private final ProductServiceIntegrations productServiceIntegrations;
     private Cart tempCart;
 
     @PostConstruct
@@ -21,8 +24,8 @@ public class CartService {
     }
 
     public void add(Long productId) {
-        Product product = productService.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Не удаётся добавить продукт с id: " + productId));
-        tempCart.add(product);
+        ProductDto productDto = productServiceIntegrations.getProductById(productId).orElseThrow(() -> new ResourceNotFoundException("Не удаётся добавить продукт с id: " + productId));
+        tempCart.add(productDto);
     }
 
     public void remove(Long productId) {

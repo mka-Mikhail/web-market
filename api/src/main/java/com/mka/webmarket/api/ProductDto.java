@@ -6,6 +6,16 @@ public class ProductDto {
     private Integer price;
     private String categoryTitle;
 
+    public ProductDto() {
+    }
+
+    public ProductDto(Long id, String title, Integer price, String categoryTitle) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.categoryTitle = categoryTitle;
+    }
+
     public Long getId() {
         return id;
     }

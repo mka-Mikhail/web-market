@@ -1,4 +1,4 @@
-package com.mka.webmarket.core.exceptions;
+package com.mka.webmarket.carts.exceptions;
 
 import com.mka.webmarket.api.AppError;
 import com.mka.webmarket.api.ResourceNotFoundException;
