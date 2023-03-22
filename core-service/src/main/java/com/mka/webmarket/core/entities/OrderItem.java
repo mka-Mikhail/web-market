@@ -1,7 +1,6 @@
 package com.mka.webmarket.core.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,7 +11,6 @@ import java.time.LocalDateTime;
 @Table(name = "order_items")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class OrderItem {
     @Id
     @Column(name = "id")
@@ -36,4 +34,12 @@ public class OrderItem {
     @CreationTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public OrderItem(Product product, Order order, int quantity, int pricePerProduct, int price) {
+        this.product = product;
+        this.order = order;
+        this.quantity = quantity;
+        this.pricePerProduct = pricePerProduct;
+        this.price = price;
+    }
 }

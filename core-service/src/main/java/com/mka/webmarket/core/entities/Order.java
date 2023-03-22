@@ -22,14 +22,14 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     private List<OrderItem> items;
     @Column(name = "address")
     private String address;
     @Column(name = "phone")
     private String phone;
     @Column(name = "total_price")
-    private int total_price;
+    private int totalPrice;
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
