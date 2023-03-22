@@ -1,4 +1,4 @@
-package com.mka.webmarket.core.models;
+package com.mka.webmarket.carts.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

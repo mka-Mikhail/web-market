@@ -1,8 +1,6 @@
-package com.mka.webmarket.core.services;
+package com.mka.webmarket.carts.services;
 
-import com.mka.webmarket.core.entities.Product;
-import com.mka.webmarket.core.exceptions.ResourceNotFoundException;
-import com.mka.webmarket.core.models.Cart;
+import com.mka.webmarket.carts.models.Cart;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

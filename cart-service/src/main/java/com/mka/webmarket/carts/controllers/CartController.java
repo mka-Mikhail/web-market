@@ -1,7 +1,7 @@
-package com.mka.webmarket.core.controllers;
+package com.mka.webmarket.carts.controllers;
 
-import com.mka.webmarket.core.services.CartService;
-import com.mka.webmarket.core.models.Cart;
+import com.mka.webmarket.carts.services.CartService;
+import com.mka.webmarket.carts.models.Cart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

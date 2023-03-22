@@ -1,6 +1,5 @@
-package com.mka.webmarket.core.models;
+package com.mka.webmarket.carts.models;
 
-import com.mka.webmarket.core.entities.Product;
 import lombok.Data;
 
 import java.util.ArrayList;
