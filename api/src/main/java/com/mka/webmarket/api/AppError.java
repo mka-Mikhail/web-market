@@ -1,4 +1,4 @@
-package com.mka.webmarket.core.exceptions;
+package com.mka.webmarket.api;
 
 public class AppError {
     private int statusCode;
