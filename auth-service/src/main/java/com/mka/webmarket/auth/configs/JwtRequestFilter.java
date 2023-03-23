@@ -1,6 +1,6 @@
-package com.mka.webmarket.core.configs;
+package com.mka.webmarket.auth.configs;
 
-import com.mka.webmarket.core.utils.JwtTokenUtils;
+import com.mka.webmarket.auth.utils.JwtTokenUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

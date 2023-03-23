@@ -1,4 +1,4 @@
-package com.mka.webmarket.core.entities;
+package com.mka.webmarket.auth.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
