@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/products")
+@CrossOrigin("*")
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
