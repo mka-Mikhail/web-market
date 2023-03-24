@@ -1,10 +1,10 @@
-package com.mka.webmarket.core.controllers;
+package com.mka.webmarket.auth.controllers;
 
+import com.mka.webmarket.api.AppError;
 import com.mka.webmarket.api.JwtRequest;
 import com.mka.webmarket.api.JwtResponse;
-import com.mka.webmarket.api.StringResponse;
-import com.mka.webmarket.core.services.UserService;
-import com.mka.webmarket.core.utils.JwtTokenUtils;
+import com.mka.webmarket.auth.services.UserService;
+import com.mka.webmarket.auth.utils.JwtTokenUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 
 @RestController
-@CrossOrigin("*")
 @RequiredArgsConstructor
 public class AuthController {
     private final UserService userService;
@@ -29,15 +27,10 @@ public class AuthController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Неверные данные"), HttpStatus.UNAUTHORIZED);
         }
         UserDetails userDetails = userService.loadUserByUsername(authRequest.getUsername());
         String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
-    }
-
-    @GetMapping("/auth_check")
-    public StringResponse authCheck(Principal principal) {
-        return new StringResponse(principal.getName());
     }
 }

@@ -1,8 +1,7 @@
 package com.mka.webmarket.carts.services;
 
 import com.mka.webmarket.api.ProductDto;
-import com.mka.webmarket.api.ResourceNotFoundException;
-import com.mka.webmarket.carts.integrations.ProductServiceIntegrations;
+import com.mka.webmarket.carts.integrations.ProductServiceIntegration;
 import com.mka.webmarket.carts.models.Cart;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CartService {
-    private final ProductServiceIntegrations productServiceIntegrations;
+    private final ProductServiceIntegration productServiceIntegrations;
     private Cart tempCart;
 
     @PostConstruct

@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
-public class ProductServiceIntegrations {
+public class ProductServiceIntegration {
     private final WebClient productServiceWebClient;
 
     public ProductDto getProductById(Long id) {

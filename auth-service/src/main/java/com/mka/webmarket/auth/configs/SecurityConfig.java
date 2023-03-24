@@ -1,6 +1,6 @@
-package com.mka.webmarket.core.configs;
+package com.mka.webmarket.auth.configs;
 
-import com.mka.webmarket.core.services.UserService;
+import com.mka.webmarket.auth.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,14 +16,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final JwtRequestFilter jwtRequestFilter;
     private final UserService userService;
 
     @Bean
@@ -34,21 +32,18 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth_check").authenticated()
-                .requestMatchers("/api/v1/orders").authenticated()
+//                .requestMatchers("/auth_check").authenticated()
+//                .requestMatchers("/api/v1/orders").authenticated()
 //                .requestMatchers("/").permitAll()
 //                .requestMatchers("/auth").permitAll()
 //                .requestMatchers("/api/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
-                //чтобы подключиться к h2 консоли
                 .headers().frameOptions().disable()
                 .and()
-                //для обработки исклоючений, которые возникают на этапе входа, проверки токена, пользователя
                 .exceptionHandling()
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 .and()
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

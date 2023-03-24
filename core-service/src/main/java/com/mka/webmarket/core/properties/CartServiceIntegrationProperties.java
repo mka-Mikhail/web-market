@@ -1,11 +1,11 @@
-package com.mka.webmarket.carts.properties;
+package com.mka.webmarket.core.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "integrations.product-service")
+@ConfigurationProperties(prefix = "integrations.cart-service")
 @Data
-public class ProductServiceIntegrationProperties {
+public class CartServiceIntegrationProperties {
     private String url;
     private Integer connectTimeout;
     private Integer readTimeout;

@@ -1,4 +1,4 @@
-package com.mka.webmarket.core.entities;
+package com.mka.webmarket.auth.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -17,7 +17,6 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
-
     @ManyToMany
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),

@@ -1,6 +1,6 @@
-package com.mka.webmarket.core.repositories;
+package com.mka.webmarket.auth.repositories;
 
-import com.mka.webmarket.core.entities.User;
+import com.mka.webmarket.auth.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
