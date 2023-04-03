@@ -5,7 +5,7 @@ import com.mka.webmarket.core.entities.Order;
 import com.mka.webmarket.core.entities.OrderItem;
 import com.mka.webmarket.core.integrations.CartServiceIntegration;
 import com.mka.webmarket.core.repositories.OrderRepository;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

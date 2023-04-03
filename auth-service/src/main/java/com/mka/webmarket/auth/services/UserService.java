@@ -3,7 +3,7 @@ package com.mka.webmarket.auth.services;
 import com.mka.webmarket.auth.entities.Role;
 import com.mka.webmarket.auth.entities.User;
 import com.mka.webmarket.auth.repositories.UserRepository;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

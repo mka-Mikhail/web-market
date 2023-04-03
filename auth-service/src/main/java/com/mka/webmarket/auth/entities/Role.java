@@ -1,6 +1,6 @@
 package com.mka.webmarket.auth.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Data

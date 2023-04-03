@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtTokenUtils {
@@ -22,7 +23,7 @@ public class JwtTokenUtils {
     public String generateToken(UserDetails userDetails) {
         List<String> rolesList = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .toList();
+                .collect(Collectors.toList());
 
         Map<String, Object> claims = new HashMap<>(Map.of("roles", rolesList));
 
