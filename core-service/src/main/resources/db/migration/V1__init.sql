@@ -21,9 +21,23 @@ create table products
 );
 
 insert into products (title, price, category_id)
-values ('Milk', 80, 1),
-       ('Bread', 40, 1),
-       ('Cheese', 140, 1);
+values ('Milk', 70.00, 1),
+       ('Milk2', 80.00, 1),
+       ('Milk3', 82.00, 1),
+       ('Milk4', 82.00, 1),
+       ('Milk5', 84.00, 1),
+       ('Milk6', 82.00, 1),
+       ('Milk7', 82.00, 1),
+       ('Milk8', 90.00, 1),
+       ('Milk9', 84.00, 1),
+       ('Milk10', 84.00, 1),
+       ('Milk11', 86.00, 1),
+       ('Milk12', 84.00, 1),
+       ('Milk13', 88.00, 1),
+       ('Milk14', 82.00, 1),
+       ('Milk15', 84.00, 1),
+       ('Bread', 25.00, 1),
+       ('Cheese', 300.00, 1);
 
 create table orders
 (

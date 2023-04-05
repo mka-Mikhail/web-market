@@ -6,6 +6,7 @@ import com.mka.webmarket.core.converters.ProductConverter;
 import com.mka.webmarket.core.entities.Product;
 import com.mka.webmarket.core.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,17 @@ public class ProductController {
     private final ProductConverter productConverter;
 
     @GetMapping
-    public List<ProductDto> getAll() {
-        return productService.getAll().stream().map(productConverter::entityToDto).collect(Collectors.toList());
+    public List<ProductDto> getAll(
+            @RequestParam(required = false, name = "min_price") Integer minPrice,
+            @RequestParam(required = false, name = "max_price") Integer maxPrice,
+            @RequestParam(required = false, name = "title") String title,
+            @RequestParam(defaultValue = "1", name = "page") Integer page
+    ) {
+        if (page < 1) {
+            page = 1;
+        }
+        Specification<Product> spec = productService.createSpecByFilters(minPrice, maxPrice, title);
+        return productService.getAll(spec, page - 1).map(productConverter::entityToDto).getContent();
     }
 
     @GetMapping("/{id}")
