@@ -1,11 +1,13 @@
 package com.mka.webmarket.api;
 
+import java.math.BigDecimal;
+
 public class CartItemDto {
     private Long productId;
     private String productTitle;
     private int quantity;
-    private int price;
-    private int pricePerProduct;
+    private BigDecimal price;
+    private BigDecimal pricePerProduct;
 
     public Long getProductId() {
         return productId;
@@ -31,19 +33,19 @@ public class CartItemDto {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public int getPricePerProduct() {
+    public BigDecimal getPricePerProduct() {
         return pricePerProduct;
     }
 
-    public void setPricePerProduct(int pricePerProduct) {
+    public void setPricePerProduct(BigDecimal pricePerProduct) {
         this.pricePerProduct = pricePerProduct;
     }
 }

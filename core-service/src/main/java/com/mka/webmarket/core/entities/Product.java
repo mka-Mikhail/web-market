@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,7 +20,7 @@ public class Product {
     @Column(name = "title")
     private String title;
     @Column(name = "price")
-    private Integer price;
+    private BigDecimal price;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
