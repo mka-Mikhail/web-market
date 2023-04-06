@@ -17,10 +17,6 @@ public class Cart {
         this.items = new ArrayList<>();
     }
 
-    public List<CartItem> getItems() {
-        return Collections.unmodifiableList(items);
-    }
-
     public void add(ProductDto productDto) {
         for (CartItem item :
                 items) {
