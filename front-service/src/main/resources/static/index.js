@@ -40,6 +40,13 @@
             } catch (e) {}
             $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.webUser.token;
         }
+
+        if ($localStorage.guestCartId) {
+            $http.get('http://localhost:5555/cart/api/v1/cart/generate_uuid')
+                .then(function successCallback(response) {
+                    $localStorage.guestCartId = response.data.value;
+                });
+        }
     }
 })();
 
